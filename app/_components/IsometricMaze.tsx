@@ -4,7 +4,7 @@ import type React from "react"
 import {useEffect, useRef} from "react"
 
 // Grid and cell configuration
-const CELL_SIZE_DIVISOR = 10 // Controls the overall size of cells
+const CELL_SIZE_DIVISOR = 8 // Controls the overall size of cells
 const GRID_CELL_MULTIPLIER = 2 // Extends the grid beyond visible canvas
 const ISOMETRIC_HEIGHT_RATIO = 0.5 // Controls the isometric height proportion
 const ISOMETRIC_X_FACTOR = 2 // Divisor for X coordinate calculation in isometric projection
@@ -60,8 +60,10 @@ const NeonIsometricMaze = ({height, width}: MazeProps) => {
             for (let yIndex = -gridHeightCells; yIndex < gridHeightCells; yIndex++) {
                 for (let xIndex = -gridWidthCells; xIndex < gridWidthCells; xIndex++) {
                     // Calculate isometric position
-                    const posX = canvasCenterX + ((xIndex - yIndex) * cellSize) / ISOMETRIC_X_FACTOR
-                    const posY = canvasCenterY + ((xIndex + yIndex) * cellSize) / ISOMETRIC_Y_FACTOR
+                    const deltaX = xIndex - yIndex
+                    const deltaY = xIndex + yIndex
+                    const posX = canvasCenterX + (deltaX * cellSize) / ISOMETRIC_X_FACTOR
+                    const posY = canvasCenterY + (deltaY * cellSize) / ISOMETRIC_Y_FACTOR
 
                     // Calculate distance from center for animation effect
                     const distanceFromCenter = Math.sqrt(xIndex * xIndex + yIndex * yIndex)
