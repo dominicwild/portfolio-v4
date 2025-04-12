@@ -1,12 +1,11 @@
 import Image from "next/image";
 import IsometricMaze from "@/app/_components/IsometricMaze";
+import HeroBanner from "@/app/_components/HeroBanner";
 
 export default function Home() {
     return (
         <div>
-            <div className={"h-50vh"}>
-                <IsometricMaze height={600}/>
-            </div>
+            < HeroBanner/>
         </div>
     );
 }
