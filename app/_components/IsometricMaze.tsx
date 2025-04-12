@@ -4,7 +4,7 @@ import type React from "react"
 import {useEffect, useRef} from "react"
 
 // Grid and cell configuration
-const CELL_SIZE_DIVISOR = 15 // Controls the overall size of cells
+const CELL_SIZE_DIVISOR = 10 // Controls the overall size of cells
 const GRID_CELL_MULTIPLIER = 2 // Extends the grid beyond visible canvas
 const ISOMETRIC_HEIGHT_RATIO = 0.5 // Controls the isometric height proportion
 const ISOMETRIC_X_FACTOR = 2 // Divisor for X coordinate calculation in isometric projection
@@ -90,7 +90,7 @@ const NeonIsometricMaze = ({height, width}: MazeProps) => {
                     ctx.fillStyle = gradient
                     ctx.fill()
 
-                    // Add yellow outline for additional neon effect
+                    // Add outline for additional neon effect
                     ctx.strokeStyle = NEON_YELLOW
                     ctx.stroke()
 
