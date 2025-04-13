@@ -141,7 +141,7 @@ const NeonIsometricMaze = ({height, width}: MazeProps) => {
     }, [])
 
     return (
-        <canvas ref={canvasRef} className="block"/>
+        <canvas ref={canvasRef} className="block w-full"/>
     )
 }
 

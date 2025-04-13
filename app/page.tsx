@@ -5,6 +5,7 @@ import {Montserrat} from 'next/font/google'
 import React from "react";
 import * as fs from "node:fs";
 import Markdown from "@/app/_components/Markdown";
+import {Projects} from "@/app/_components/projects";
 
 const montserrat = Montserrat({
     subsets: ['latin'],
@@ -16,18 +17,22 @@ const montserrat = Montserrat({
 
 export default function Home() {
     const introMarkdown = fs.readFileSync("markdown/intro.md", "utf8");
+
     return (
         <div className={`${montserrat.className}`}>
             <HeroBanner heightPercent={50}/>
             <div>
                 <BodyBackground className={"flex flex-col gap-y-2"}>
-                    <div className="relative min-h-[50vh] text-white">
-                        <div className={`mx-auto max-w-prose flex flex-col gap-y-2`}>
+                    <div className="relative min-h-[50vh] text-white z-10">
+                        <div className={`mx-auto max-w-prose flex flex-col gap-y-2 mb-4`}>
                             <Markdown>
                                 {introMarkdown}
                             </Markdown>
                         </div>
+
+                        <Projects/>
                     </div>
+
                 </BodyBackground>
             </div>
         </div>
