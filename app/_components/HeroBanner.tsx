@@ -19,7 +19,16 @@ const HeroBanner = ({heightPercent}: { heightPercent: number }) => {
 
     return (
         <div className={"relative"}>
-            <div className={"absolute w-full h-full bg-black opacity-30"}/>
+            <div className={"absolute w-full h-full bg-black opacity-30"}>
+            </div>
+            <div className={"absolute w-full h-full flex justify-center items-center text-white flex-col"}>
+                <h1 className={"text-5xl block mb-2"}>
+                    Dominic Wild
+                </h1>
+                <h2 className={"text-2xl"}>
+                    Pragmatic Software Engineer
+                </h2>
+            </div>
 
             <div>
                 {maze}
