@@ -2,7 +2,6 @@ import HeroBanner from "@/app/_components/HeroBanner";
 import BodyBackground from "@/app/_components/BodyBackground";
 
 import {Montserrat} from 'next/font/google'
-import ReactMarkdown from "react-markdown";
 import React from "react";
 import * as fs from "node:fs";
 import Markdown from "@/app/_components/Markdown";
