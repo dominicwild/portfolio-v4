@@ -54,4 +54,6 @@ export const projectsData: ProjectData[] = [
         descriptionFile: "markdown/projects/distributed-storage-worker.md",
         dateDeveloped: new Date(Date.parse("1 Nov 2018")),
     }
-]
+].sort(
+    (project, otherProject) => otherProject.dateDeveloped.getTime() - project.dateDeveloped.getTime()
+)
