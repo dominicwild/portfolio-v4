@@ -1,0 +1,43 @@
+@keyframes gentle-float-down {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(0deg);
+    }
+}
+
+@keyframes gentle-float-up {
+    0%, 100% {
+        transform: translateY(0) rotate(180deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(180deg);
+    }
+}
+
+.chevron-float {
+    transition: all 0.5s ease-in-out;
+}
+
+/* Animation for non-rotated state (collapsed) */
+.chevron-float:not(.rotated):hover,
+.group:hover .chevron-float:not(.rotated) {
+    animation: gentle-float-down 2s ease-in-out infinite;
+}
+
+/* Animation for rotated state (expanded) */
+.chevron-float.rotated:hover,
+.group:hover .chevron-float.rotated {
+    animation: gentle-float-up 2s ease-in-out infinite;
+    animation-fill-mode: both;
+}
+
+.chevron-rotate {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.chevron-rotate.rotated {
+    transform: rotate(180deg);
+}

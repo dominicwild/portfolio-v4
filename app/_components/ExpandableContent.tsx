@@ -1,16 +1,17 @@
 "use client";
 
-import React, {useState, useRef, useEffect} from "react";
-import {CardContent, CardFooter} from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import {ChevronDown, ChevronUp} from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 import Markdown from "@/app/_components/Markdown";
+import "./ExpandableContent.css";
 
 interface ExpandableContentProps {
     markdown: string;
 }
 
-const ExpandableContent = ({markdown}: ExpandableContentProps) => {
+const ExpandableContent = ({ markdown }: ExpandableContentProps) => {
     const [expanded, setExpanded] = useState(false);
     const [contentHeight, setContentHeight] = useState(0);
     const contentRef = useRef<HTMLDivElement>(null);
@@ -58,10 +59,8 @@ const ExpandableContent = ({markdown}: ExpandableContentProps) => {
                         className="w-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer group"
                     >
                         <span>{expanded ? "Show Less" : "Read More"}</span>
-                        <div
-                            className={`transform transition-transform duration-300 ${expanded ? "rotate-180" : ""} group-hover:animate-bounce`}
-                        >
-                            <ChevronDown className="h-4 w-4"/>
+                        <div className={`chevron-float chevron-rotate ${expanded ? "rotated" : ""}`} style={{ display: "inline-block" }}>
+                            <ChevronDown className="h-4 w-4" />
                         </div>
                     </Button>
                 </CardFooter>
