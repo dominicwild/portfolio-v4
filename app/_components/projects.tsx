@@ -15,7 +15,10 @@ const Project = ({project}: { project: ProjectData }) => {
                 className={"h-[20rem]"}
             />
             <CardContent className={" "}>
-                <Markdown>
+                <Markdown
+                    header1ClassName={"!-mt-1"}
+                    paragraph1ClassName={"mb-4"}
+                >
                     {markdown}
                 </Markdown>
             </CardContent>

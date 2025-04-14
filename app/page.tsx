@@ -15,8 +15,16 @@ const montserrat = Montserrat({
 })
 
 
-export default function Home() {
+function Intro() {
     const introMarkdown = fs.readFileSync("markdown/intro.md", "utf8");
+    return <div className={`mx-auto max-w-prose flex flex-col gap-y-2 mb-4`}>
+        <Markdown>
+            {introMarkdown}
+        </Markdown>
+    </div>;
+}
+
+export default function Home() {
 
     return (
         <div className={`${montserrat.className}`}>
@@ -24,11 +32,7 @@ export default function Home() {
             <div>
                 <BodyBackground className={"flex flex-col gap-y-2"}>
                     <div className="relative min-h-[50vh] text-white z-10">
-                        <div className={`mx-auto max-w-prose flex flex-col gap-y-2 mb-4`}>
-                            <Markdown>
-                                {introMarkdown}
-                            </Markdown>
-                        </div>
+                        <Intro/>
 
                         <Projects/>
                     </div>
