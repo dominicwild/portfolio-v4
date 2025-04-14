@@ -32,9 +32,12 @@ export default function Home() {
 
                         <Projects/>
                     </div>
-
                 </BodyBackground>
             </div>
         </div>
     );
 }
+
+export const metadata = {
+    title: "Dominic Portfolio",
+};
