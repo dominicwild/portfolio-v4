@@ -10,6 +10,12 @@ const cdnRootUrl = "https://cdn.jsdelivr.net/gh/dominicwild/portfolio-v4@master/
 
 export const projectsData: ProjectData[] = [
     {
+        image: `${cdnRootUrl}/portfolio-site.png`,
+        descriptionFile: "markdown/projects/portfolio-v1.md",
+        dateDeveloped: new Date(Date.parse("1 Jul 2019")),
+        githubLink: "https://github.com",
+    },
+    {
         image: `${cdnRootUrl}/snooker3.gif`,
         descriptionFile: "markdown/projects/pool.md",
         dateDeveloped: new Date(Date.parse("1 Apr 2016")),
@@ -18,11 +24,6 @@ export const projectsData: ProjectData[] = [
         image: `${cdnRootUrl}/krooza-small.gif`,
         descriptionFile: "markdown/projects/krooza.md",
         dateDeveloped: new Date(Date.parse("1 Oct 2016")),
-    },
-    {
-        image: `${cdnRootUrl}/portfolio-site.png`,
-        descriptionFile: "markdown/projects/portfolio-v1.md",
-        dateDeveloped: new Date(Date.parse("1 Jul 2019")),
     },
     {
         image: `${cdnRootUrl}/heart.gif`,
