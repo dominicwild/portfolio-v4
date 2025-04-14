@@ -21,7 +21,7 @@ const Project = ({project}: { project: ProjectData }) => {
 
 export const Projects = () => {
     return (
-        <div className={"flex gap-x-4 gap-y-4 w-[75%] mx-auto flex-wrap"}>
+        <div className={"flex gap-x-4 gap-y-3 w-[75%] mx-auto flex-wrap items-start"}>
             {
                 projectsData.map((data) => (
                     <Project project={data} key={data.descriptionFile}/>
