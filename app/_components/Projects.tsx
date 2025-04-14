@@ -29,7 +29,7 @@ const Project = ({project}: { project: ProjectData }) => {
     }
 
     return (
-        <Card className={"w-[32%] flex flex-col gap-y-2"} key={project.descriptionFile}>
+        <Card className={"lg:w-[31%] md:w-[45%] sm:w-full w-full flex flex-col gap-y-2"} key={project.descriptionFile}>
             <CardImage
                 src={project.image}
                 alt=""

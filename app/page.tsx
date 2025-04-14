@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 
 function Intro() {
     const introMarkdown = fs.readFileSync("markdown/intro.md", "utf8");
-    return <div className={`mx-auto max-w-prose flex flex-col gap-y-2 mb-4`}>
+    return <div className={`mx-auto max-w-prose flex flex-col gap-y-2 mb-4 lg:px-0 px-8`}>
         <Markdown>
             {introMarkdown}
         </Markdown>
@@ -31,7 +31,7 @@ export default function Home() {
             <HeroBanner heightPercent={50}/>
             <div>
                 <BodyBackground className={"flex flex-col gap-y-2"}>
-                    <div className="relative min-h-[50vh] text-white z-10">
+                    <div className="relative min-h-[50vh] text-white z-10 pb-4 ">
                         <Intro/>
 
                         <Projects/>

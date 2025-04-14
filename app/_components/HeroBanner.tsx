@@ -2,6 +2,10 @@
 
 import React, {useEffect, useState} from 'react';
 import IsometricMaze from "@/app/_components/IsometricMaze";
+import {Button} from "@/components/ui/button";
+import {SiGithub} from "@icons-pack/react-simple-icons";
+import Link from "next/link";
+import {LinkedinIcon} from "lucide-react";
 
 const HeroBanner = ({heightPercent}: { heightPercent: number }) => {
     const [height, setHeight] = useState(0)
@@ -17,6 +21,8 @@ const HeroBanner = ({heightPercent}: { heightPercent: number }) => {
         maze = <IsometricMaze height={height}/>
     }
 
+    const buttonSizeClass = "h-14 w-14"
+
     return (
         <div className={"relative"}>
             <div className={"absolute w-full h-full bg-black opacity-30"}>
@@ -28,6 +34,18 @@ const HeroBanner = ({heightPercent}: { heightPercent: number }) => {
                 <h2 className={"text-2xl"}>
                     Pragmatic Software Engineer
                 </h2>
+                <div className={"flex gap-x-2 mt-2"}>
+                    <Button asChild className={`rounded-full ${buttonSizeClass} bg-transparent border !p-0`}>
+                        <Link href={"https://github.com/dominicwild/"} target={"_blank"}>
+                            <SiGithub className={"!h-8 !w-8"}/>
+                        </Link>
+                    </Button>
+                    <Button asChild className={`rounded-full ${buttonSizeClass} bg-transparent border !p-0`}>
+                        <Link href={"https://www.linkedin.com/in/dominic-wild-563576178/"} target={"_blank"}>
+                            <LinkedinIcon className={"!h-8 !w-8"}/>
+                        </Link>
+                    </Button>
+                </div>
             </div>
 
             <div>
