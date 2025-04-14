@@ -51,23 +51,18 @@ const ExpandableContent = ({markdown}: ExpandableContentProps) => {
                 </Markdown>
             </CardContent>
             {needsExpansion && (
-                <CardFooter className={"justify-center"}>
+                <CardFooter className={"justify-center mt-auto"}>
                     <Button
                         variant="outline"
                         onClick={toggleExpand}
-                        className="w-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer"
+                        className="w-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer group"
                     >
-                        {expanded ? (
-                            <>
-                                <span>Show Less</span>
-                                <ChevronUp className="h-4 w-4"/>
-                            </>
-                        ) : (
-                            <>
-                                <span>Read More</span>
-                                <ChevronDown className="h-4 w-4"/>
-                            </>
-                        )}
+                        <span>{expanded ? "Show Less" : "Read More"}</span>
+                        <div
+                            className={`transform transition-transform duration-300 ${expanded ? "rotate-180" : ""} group-hover:animate-bounce`}
+                        >
+                            <ChevronDown className="h-4 w-4"/>
+                        </div>
                     </Button>
                 </CardFooter>
             )}
