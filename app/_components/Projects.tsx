@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, CardContent, CardImage } from "@/components/ui/card";
-import { ProjectData, projectsData } from "@/app/_components/projectsData";
+import {Card, CardContent, CardImage} from "@/components/ui/card";
+import {ProjectData, projectsData} from "@/app/_components/projectsData";
 import * as fs from "node:fs";
 import ExpandableContent from "@/app/_components/ExpandableContent";
 
-const Project = ({ project }: { project: ProjectData }) => {
+const Project = ({project}: { project: ProjectData }) => {
     const markdown = fs.readFileSync(project.descriptionFile, "utf8");
 
     return (
@@ -14,7 +14,7 @@ const Project = ({ project }: { project: ProjectData }) => {
                 alt=""
                 className={"h-[20rem]"}
             />
-            <ExpandableContent markdown={markdown} />
+            <ExpandableContent markdown={markdown}/>
         </Card>
     );
 };
@@ -24,7 +24,7 @@ export const Projects = () => {
         <div className={"flex gap-x-4 gap-y-4 w-[75%] mx-auto flex-wrap"}>
             {
                 projectsData.map((data) => (
-                    <Project project={data} key={data.descriptionFile} />
+                    <Project project={data} key={data.descriptionFile}/>
                 ))
             }
         </div>

@@ -5,7 +5,7 @@ import {Montserrat} from 'next/font/google'
 import React from "react";
 import * as fs from "node:fs";
 import Markdown from "@/app/_components/Markdown";
-import {Projects} from "@/app/_components/projects";
+import {Projects} from "@/app/_components/Projects";
 
 const montserrat = Montserrat({
     subsets: ['latin'],
