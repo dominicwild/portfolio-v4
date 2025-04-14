@@ -55,7 +55,7 @@ const ExpandableContent = ({markdown}: ExpandableContentProps) => {
                     <Button
                         variant="outline"
                         onClick={toggleExpand}
-                        className="w-full flex items-center justify-center gap-2 transition-all duration-300"
+                        className="w-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer"
                     >
                         {expanded ? (
                             <>
