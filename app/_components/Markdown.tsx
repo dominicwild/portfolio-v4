@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactMarkdown, {Components} from "react-markdown";
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import {oneDark} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 type MarkdownProps = {
     children: string,
@@ -43,13 +45,21 @@ const Markdown = ({
             <p className={`${paragraph1ClassName}`} {...props} />
         ),
         code: ({node, className, children, ...props}) => {
-            return (
-                <pre className="bg-gray-100 rounded p-4 overflow-x-auto text-sm mb-4">
-        <code className={`font-mono ${className ?? ''}`} {...props}>
-          {children}
-        </code>
-      </pre>
-            );
+            const match = /language-(\w+)/.exec(className || '');
+            const code = String(children).replace(/\n$/, '')
+            return match ? (
+                <SyntaxHighlighter
+                    style={oneDark as any}
+                    language={match[1]}
+                    PreTag="div"
+                >
+                    {code}
+                </SyntaxHighlighter>
+            ) : (
+                <code className={`${className} bg-gray-200 p-0.5 px-1 rounded-xs`} {...props}>
+                    {children}
+                </code>
+            )
         },
     };
     return (
