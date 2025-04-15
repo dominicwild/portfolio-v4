@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import {Card, CardImage} from "@/components/ui/card";
+import {Card} from "@/components/ui/card";
 import {ProjectData, projectsData} from "@/app/_components/projectsData";
 import * as fs from "node:fs";
 import ExpandableContent from "@/app/_components/ExpandableContent";
@@ -7,6 +7,7 @@ import {Button} from "@/components/ui/button";
 import {SiGithub} from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import {ExternalLink} from "lucide-react";
+import {PopoutCard} from "@/app/_components/PopoutCard";
 
 const GitHubButton = ({link}: { link: string }) => {
     return (
@@ -35,11 +36,7 @@ const Project = ({project}: { project: ProjectData }) => {
 
     return (
         <Card className={"lg:w-[31%] md:w-[45%] sm:w-full w-full flex flex-col gap-y-2"} key={project.descriptionFile}>
-            <CardImage
-                src={project.image}
-                alt=""
-                className={"h-[20rem]"}
-            />
+            <PopoutCard imageUrl={project.image}/>
             <div className={"px-6"}>
                 {buttons}
             </div>

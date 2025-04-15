@@ -8,13 +8,14 @@ import React, {
     useEffect,
     useMemo,
     KeyboardEventHandler,
-    ReactElement
+    ReactElement,
 } from "react";
 import {createPortal} from "react-dom";
 
 type OverlayContextType = {
     show: (content: ReactNode) => void;
     hide: () => void;
+    addOnHideCallback: (func: Function) => void;
 };
 
 const OverlayContext = createContext<OverlayContextType | null>(null);
@@ -28,15 +29,27 @@ export const useOverlay = () => {
 export const OverlayProvider = ({children}: { children: ReactNode }) => {
     const [content, setContent] = useState<ReactNode | null>(null);
     const [mounted, setMounted] = useState(false);
+    const [onHideCallbacks, setOnHideCallbacks] = useState<Function[]>([])
 
     const show = (node: ReactNode) => setContent(node)
 
     const values = useMemo(() => {
         return {
             show,
-            hide: () => setContent(null)
+            hide: () => {
+                setContent(null)
+                console.log(onHideCallbacks)
+                for (let onHideCallback of onHideCallbacks) {
+                    onHideCallback();
+                }
+            },
+            addOnHideCallback: (func: Function) => {
+                setOnHideCallbacks((prevOnHideCallbacks) => [
+                    ...prevOnHideCallbacks, func
+                ])
+            }
         }
-    }, [])
+    }, [onHideCallbacks, setOnHideCallbacks])
 
     const onKeyDownHandler: KeyboardEventHandler<HTMLDivElement> = (e) => {
         if (e.key === "Escape") {
