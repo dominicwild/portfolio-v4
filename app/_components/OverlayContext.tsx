@@ -1,5 +1,15 @@
 "use client"
-import React, {createContext, useContext, useState, ReactNode, useEffect, useMemo, KeyboardEventHandler} from "react";
+import {AnimatePresence, motion} from "motion/react";
+import React, {
+    createContext,
+    useContext,
+    useState,
+    ReactNode,
+    useEffect,
+    useMemo,
+    KeyboardEventHandler,
+    ReactElement
+} from "react";
 import {createPortal} from "react-dom";
 
 type OverlayContextType = {
@@ -38,15 +48,30 @@ export const OverlayProvider = ({children}: { children: ReactNode }) => {
         setMounted(true);
     }, []);
 
+    let toRender: ReactElement | null = null;
+    console.log(content)
+    if (content) {
+        console.log("Rendering thing")
+        toRender = (
+            <motion.div
+                className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center transition-all  ease-in-out duration-500"
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+                transition={{duration: 0.3}}
+            >
+                <div onClick={values.hide} onKeyDown={onKeyDownHandler} className="absolute inset-0"/>
+                <div className="relative z-10">{content}</div>
+            </motion.div>
+        )
+    }
+
     const portal = useMemo(() => {
         if (!mounted) return null;
         return createPortal(
-            content ? (
-                <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-                    <div onClick={values.hide} onKeyDown={onKeyDownHandler} className="absolute inset-0"/>
-                    <div className="relative z-10">{content}</div>
-                </div>
-            ) : null,
+            <AnimatePresence>
+                {toRender}
+            </AnimatePresence>,
             document.body
         );
     }, [mounted, content]);
