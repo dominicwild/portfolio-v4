@@ -20,8 +20,6 @@ function CardImage({
                        className,
                        src,
                        alt,
-                       width = 400,
-                       height = 200,
                        ...props
                    }: React.ComponentProps<typeof Image>) {
     return (
@@ -29,11 +27,9 @@ function CardImage({
             data-slot="card-image"
             className={cn("relative w-full overflow-hidden rounded-t-xl", className)}
         >
-            <Image
-                src={src}
+            <img
+                src={src as string}
                 alt={alt}
-                width={width}
-                height={height}
                 className="object-cover w-full h-full"
                 {...props}
             />

@@ -7,7 +7,7 @@ import {Button} from "@/components/ui/button";
 import {SiGithub} from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import {ExternalLink} from "lucide-react";
-import {PopoutCard} from "@/app/_components/PopoutCard";
+import {PopoutImage} from "@/app/_components/PopoutImage";
 
 const GitHubButton = ({link}: { link: string }) => {
     return (
@@ -36,7 +36,7 @@ const Project = ({project}: { project: ProjectData }) => {
 
     return (
         <Card className={"lg:w-[31%] md:w-[45%] sm:w-full w-full flex flex-col gap-y-2"} key={project.descriptionFile}>
-            <PopoutCard imageUrl={project.image}/>
+            <PopoutImage imageUrl={project.image}/>
             <div className={"px-6"}>
                 {buttons}
             </div>
