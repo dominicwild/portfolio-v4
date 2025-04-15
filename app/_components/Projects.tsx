@@ -28,6 +28,11 @@ const Project = ({project}: { project: ProjectData }) => {
         buttons.push(<GitHubButton link={project.githubLink} key="github"/>)
     }
 
+    const dateString = new Intl.DateTimeFormat("en-GB", {
+        month: "short",
+        year: "numeric",
+    }).format(project.dateDeveloped);
+
     return (
         <Card className={"lg:w-[31%] md:w-[45%] sm:w-full w-full flex flex-col gap-y-2"} key={project.descriptionFile}>
             <CardImage
@@ -37,6 +42,9 @@ const Project = ({project}: { project: ProjectData }) => {
             />
             <div className={"px-6"}>
                 {buttons}
+            </div>
+            <div className={"text-sm text-gray-500 px-6 italic"}>
+                {dateString}
             </div>
             <ExpandableContent markdown={markdown}/>
         </Card>
