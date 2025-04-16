@@ -34,6 +34,9 @@ const HeroBanner = ({heightPercent}: { heightPercent: number }) => {
                 <h2 className={"text-2xl"}>
                     Pragmatic Software Engineer
                 </h2>
+                {/*<h3 className={"text-sm block text-gray-300"}>*/}
+                {/*    {new Date().getFullYear() - 2019} years experience in the industry*/}
+                {/*</h3>*/}
                 <div className={"flex gap-x-2 mt-2"}>
                     <Button asChild className={`rounded-full ${buttonSizeClass} bg-transparent border !p-0`}>
                         <Link href={"https://github.com/dominicwild/"} target={"_blank"}>
