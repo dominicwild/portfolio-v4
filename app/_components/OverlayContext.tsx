@@ -38,7 +38,6 @@ export const OverlayProvider = ({children}: { children: ReactNode }) => {
             show,
             hide: () => {
                 setContent(null)
-                console.log(onHideCallbacks)
                 for (let onHideCallback of onHideCallbacks) {
                     onHideCallback();
                 }
@@ -62,9 +61,7 @@ export const OverlayProvider = ({children}: { children: ReactNode }) => {
     }, []);
 
     let toRender: ReactElement | null = null;
-    console.log(content)
     if (content) {
-        console.log("Rendering thing")
         toRender = (
             <motion.div
                 className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center transition-all  ease-in-out duration-500"

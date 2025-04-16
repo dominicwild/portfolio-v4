@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import {Montserrat} from "next/font/google";
 import "./globals.css";
 import {OverlayProvider} from "@/app/_components/OverlayContext";
+import {AnimatePresence} from "motion/react";
 
 
 export const metadata: Metadata = {
@@ -24,9 +25,11 @@ export default function RootLayout({children,}: Readonly<{
         <body
             className={`${montserrat.className} antialiased`}
         >
-        <OverlayProvider>
-            {children}
-        </OverlayProvider>
+        <AnimatePresence>
+            <OverlayProvider>
+                {children}
+            </OverlayProvider>
+        </AnimatePresence>
         </body>
 
         </html>
