@@ -3,6 +3,7 @@ import {Montserrat} from "next/font/google";
 import "./globals.css";
 import {OverlayProvider} from "@/app/_components/OverlayContext";
 import {AnimatePresence} from "motion/react";
+import {Analytics} from "@vercel/analytics/next";
 
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({children,}: Readonly<{
     return (
         <html lang="en">
 
+        <Analytics/>
         <body
             className={`${montserrat.className} antialiased`}
         >
