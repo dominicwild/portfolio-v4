@@ -44,6 +44,9 @@ const Markdown = ({
         p: ({node, ...props}) => (
             <p className={`${paragraph1ClassName}`} {...props} />
         ),
+        a: ({node, ...props}) => (
+            <a className={`text-blue-700 hover:underline`} {...props} />
+        ),
         code: ({node, className, children, ...props}) => {
             const match = /language-(\w+)/.exec(className || '');
             const code = String(children).replace(/\n$/, '')
@@ -61,6 +64,7 @@ const Markdown = ({
                 </code>
             )
         },
+
     };
     return (
         <ReactMarkdown components={markdownComponents}>

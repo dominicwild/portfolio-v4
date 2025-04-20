@@ -8,6 +8,7 @@ import {SiGithub} from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import {ExternalLink} from "lucide-react";
 import {PopoutCard} from "@/app/_components/PopoutCard";
+import LiveIcon from "@/app/_components/LiveIcon";
 
 const GitHubButton = ({link}: { link: string }) => {
     return (
@@ -15,6 +16,18 @@ const GitHubButton = ({link}: { link: string }) => {
             <Link href={link} target={"_blank"}>
                 <SiGithub/>
                 Repo
+                <ExternalLink className={"ml-2"}/>
+            </Link>
+        </Button>
+    )
+}
+
+const LiveDeploymentButton = ({link}: { link: string }) => {
+    return (
+        <Button asChild className={"bg-[#16a34a] hover:bg-[#15803d] cursor-pointer text-white"}>
+            <Link href={link} target={"_blank"}>
+                <LiveIcon fill={"white"}/>
+                Live
                 <ExternalLink className={"ml-2"}/>
             </Link>
         </Button>
@@ -29,6 +42,10 @@ const Project = ({project}: { project: ProjectData }) => {
         buttons.push(<GitHubButton link={project.githubLink} key="github"/>)
     }
 
+    if (project.liveDeploymentLink) {
+        buttons.push(<LiveDeploymentButton link={project.liveDeploymentLink} key={"live"}/>)
+    }
+
     const dateString = new Intl.DateTimeFormat("en-GB", {
         month: "short",
         year: "numeric",
@@ -37,7 +54,7 @@ const Project = ({project}: { project: ProjectData }) => {
     return (
         <Card className={"lg:w-[31%] md:w-[45%] sm:w-full w-full flex flex-col gap-y-2"} key={project.descriptionFile}>
             <PopoutCard imageUrl={project.image}/>
-            <div className={"px-6"}>
+            <div className={"px-6 flex gap-x-2"}>
                 {buttons}
             </div>
             <div className={"text-sm text-gray-500 px-6 italic"}>
