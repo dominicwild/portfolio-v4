@@ -14,14 +14,14 @@ export const projectsData: ProjectData[] = [
         descriptionFile: "markdown/projects/sky-site.md",
         dateDeveloped: new Date(Date.parse("3 Apr 2025")),
         githubLink: "https://github.com/dominicwild/sky-tools",
-        liveDeploymentLink: "sky.dominicwild.com",
+        liveDeploymentLink: "https://sky.dominicwild.com",
     },
     {
         image: `${cdnRootUrl}/blog.png`,
         descriptionFile: "markdown/projects/blog.md",
         dateDeveloped: new Date(Date.parse("2 Apr 2025")),
         githubLink: "https://github.com/dominicwild/dom-blog",
-        liveDeploymentLink: "blog.dominicwild.com",
+        liveDeploymentLink: "https://blog.dominicwild.com",
     },
     {
         image: `${cdnRootUrl}/portfolio-v4.png`,
