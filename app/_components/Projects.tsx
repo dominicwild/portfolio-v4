@@ -54,13 +54,13 @@ const Project = ({project}: { project: ProjectData }) => {
     return (
         <Card className={"lg:w-[31%] md:w-[45%] sm:w-full w-full flex flex-col gap-y-2"} key={project.descriptionFile}>
             <PopoutCard imageUrl={project.image}/>
-            <div className={"px-6 flex gap-x-2"}>
-                {buttons}
-            </div>
             <div className={"text-sm text-gray-500 px-6 italic"}>
                 {dateString}
             </div>
             <ExpandableContent markdown={markdown}/>
+            <div className={"px-6 flex gap-x-2"}>
+                {buttons}
+            </div>
         </Card>
     );
 };
