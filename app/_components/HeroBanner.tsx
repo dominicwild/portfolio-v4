@@ -13,7 +13,7 @@ const HeroBanner = ({heightPercent}: { heightPercent: number }) => {
     // First render is always server side, so we need useEffect to access the window object, as useEffect only runs on client
     useEffect(() => {
         setHeight((window.innerHeight / 100) * heightPercent)
-    })
+    }, [heightPercent])
 
     let maze = <></>
 
