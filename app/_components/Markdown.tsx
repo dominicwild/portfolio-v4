@@ -52,7 +52,7 @@ const Markdown = ({
             const code = String(children).replace(/\n$/, '')
             return match ? (
                 <SyntaxHighlighter
-                    style={oneDark as any}
+                    style={oneDark}
                     language={match[1]}
                     PreTag="div"
                 >

@@ -12,6 +12,7 @@ const HeroBanner = ({heightPercent}: { heightPercent: number }) => {
 
     // First render is always server side, so we need useEffect to access the window object, as useEffect only runs on client
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- window only exists after mount
         setHeight((window.innerHeight / 100) * heightPercent)
     }, [heightPercent])
 

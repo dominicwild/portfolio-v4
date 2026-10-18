@@ -15,7 +15,7 @@ import {createPortal} from "react-dom";
 type OverlayContextType = {
     show: (content: ReactNode) => void;
     hide: () => void;
-    addOnHideCallback: (func: Function) => void;
+    addOnHideCallback: (func: () => void) => void;
 };
 
 const OverlayContext = createContext<OverlayContextType | null>(null);
@@ -29,7 +29,7 @@ export const useOverlay = () => {
 export const OverlayProvider = ({children}: { children: ReactNode }) => {
     const [content, setContent] = useState<ReactNode | null>(null);
     const [mounted, setMounted] = useState(false);
-    const [onHideCallbacks, setOnHideCallbacks] = useState<Function[]>([])
+    const [onHideCallbacks, setOnHideCallbacks] = useState<(() => void)[]>([])
 
     const show = (node: ReactNode) => setContent(node)
 
@@ -38,11 +38,11 @@ export const OverlayProvider = ({children}: { children: ReactNode }) => {
             show,
             hide: () => {
                 setContent(null)
-                for (let onHideCallback of onHideCallbacks) {
+                for (const onHideCallback of onHideCallbacks) {
                     onHideCallback();
                 }
             },
-            addOnHideCallback: (func: Function) => {
+            addOnHideCallback: (func: () => void) => {
                 setOnHideCallbacks((prevOnHideCallbacks) => [
                     ...prevOnHideCallbacks, func
                 ])
@@ -57,6 +57,7 @@ export const OverlayProvider = ({children}: { children: ReactNode }) => {
     }
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- document.body only exists after mount
         setMounted(true);
     }, []);
 
