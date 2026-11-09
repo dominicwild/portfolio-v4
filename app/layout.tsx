@@ -4,6 +4,7 @@ import "./globals.css";
 import {OverlayProvider} from "@/app/_components/OverlayContext";
 import {AnimatePresence} from "motion/react";
 import {Analytics} from "@vercel/analytics/next";
+import {VisitTracker} from "@/app/_components/visit-tracker";
 
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({children,}: Readonly<{
                 {children}
             </OverlayProvider>
         </AnimatePresence>
+        <VisitTracker/>
         </body>
 
         </html>
