@@ -10,6 +10,12 @@ const cdnRootUrl = "https://cdn.jsdelivr.net/gh/dominicwild/portfolio-v4@master/
 
 export const projectsData: ProjectData[] = [
     {
+        image: `${cdnRootUrl}/friend-cards-coop.png`,
+        descriptionFile: "markdown/projects/friend-cards-coop.md",
+        dateDeveloped: new Date(Date.parse("1 Nov 2026")),
+        liveDeploymentLink: "https://co-op.friend-cards.com",
+    },
+    {
         image: `${cdnRootUrl}/friend-cards-quiz.png`,
         descriptionFile: "markdown/projects/friend-cards-quiz.md",
         dateDeveloped: new Date(Date.parse("13 Sep 2026")),
